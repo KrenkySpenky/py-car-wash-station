@@ -39,13 +39,9 @@ class CarWashStation:
     def is_can_wash(self, car: Car) -> bool:
         return self.clean_power > car.clean_mark
 
-    def wash_single_car(self, car: Car) -> bool:
-        is_can = self.is_can_wash(car)
-
-        if is_can:
+    def wash_single_car(self, car: Car) -> None:
+        if self.is_can_wash(car):
             car.clean_mark = self.clean_power
-
-        return is_can
 
     def rate_service(self, unified_rating: float) -> None:
         total_ratings = self.count_of_ratings + 1
